@@ -1,5 +1,7 @@
 # 프론트엔드 멘토(Advice generator app)
 [프론트엔드 멘토](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db)
+![desktop-design](https://github.com/CNU-Likelion/frontend-5week-homework/assets/67012995/c814e01e-88bd-4021-997f-244589992c75)
+
 
 
 ## 💻 진행 방식
