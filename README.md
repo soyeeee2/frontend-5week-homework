@@ -12,7 +12,7 @@
 ## 🧑‍💻 요구 사항
 - 사용자는 Advice generator app에 접속하면, 랜덤으로 advice를 볼 수 있다.
 - 주사위 버튼을 눌렀을 경우 api를 통해서 랜덤으로 advice를 가져와 프론트로 보여준다
-- ** [api 주소](https://api.adviceslip.com/) **
+- **[api 주소](https://api.adviceslip.com/)**
 - 개발은 React를 사용하여 진행한다.
 - 4주차 과제는 **4월 8일 자정**까지 제출한다.
 - 미션은 무조건 기한 내에 완료하지 못하더라도 제출해야한다.
