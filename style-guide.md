@@ -13,24 +13,26 @@ The designs were created to the following widths:
 
 ### Primary
 
-- Light Cyan: hsl(193, 38%, 86%)
-- Neon Green: hsl(150, 100%, 66%)
+- Purple: hsl(259, 100%, 65%)
+- Light red: hsl(0, 100%, 67%)
 
 ### Neutral
 
-- Grayish Blue: hsl(217, 19%, 38%)
-- Dark Grayish Blue: hsl(217, 19%, 24%)
-- Dark Blue: hsl(218, 23%, 16%)
+- White: hsl(0, 0%, 100%)
+- Off white: hsl(0, 0%, 94%)
+- Light grey: hsl(0, 0%, 86%)
+- Smokey grey: hsl(0, 1%, 44%)
+- Off black: hsl(0, 0%, 8%)
 
 ## Typography
 
 ### Body Copy
 
-- Font size (quote): 28px
+- Font size (inputs): 32px
 
 ### Font
 
-- Family: [Manrope](https://fonts.google.com/specimen/Manrope)
-- Weights: 800
+- Family: [Poppins](https://fonts.google.com/specimen/Poppins)
+- Weights: 400i, 700, 800i
 
 > 💎 [Upgrade to Pro](https://www.frontendmentor.io/pro?ref=style-guide) for design file access to see all design details and get hands-on experience using a professional workflow with tools like Figma.
