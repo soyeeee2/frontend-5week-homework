@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 function App() {
     const resultRef = useRef();
-    const [datas, setDatas] = useState([
+    const [defaults, setDefaults] = useState([
         {
             id: 'DAY',
             placeholder: 'DD',
@@ -21,34 +21,58 @@ function App() {
             value: ''
         }
     ])
+    const [result, setResult] = useState({
+        YEAR: '',
+        MONTH: '',
+        DAY: ''
+    });
 
     const calculate = (value, idx) => {
-        console.log(idx);
+        defaults.map(({ id, value }) => {
+            setResult({
+                ...result,
+                [id]: value
+            });
+        })
 
-        return value;
+        var today = new Date();
+        var birthday = new Date(result['YEAR'], result['MONTH'] - 1, result['DAY']);
+        // console.log(birthday);
+        const survival = today - birthday;
+        const survival_Day = survival / 1000 / 60 / 60 / 24;
+        // console.log(survival_Day)
+
     }
-
-    // empty dney
 
 
     const handleOnsubmit = (e) => {
         e.preventDefault();
-        const sectionLen = resultRef.current.childNodes.length;
-        datas.reverse();
-        // push date
-
-        if( sectionLen < 3 ) {
-            //tag 유지하면서 데이터만 변경하기
-            datas.map(({ id, value }, idx) => {
-                const num = calculate(value, idx);
-                const child = document.createElement('p');
-                const lowerChild = id.toLowerCase();
-                child.innerHTML = highlightNumbers(num) + ` ${lowerChild}s`;
-                resultRef.current.appendChild(child);
-            })
-        }
-        datas.reverse();
+        defaults.reverse();
+        calculate();
+        showResult();
+        defaults.reverse(); 
     }
+
+    const showResult = () => {
+        for (const { id, value } of defaults) {
+            //empty dney
+            if (value == '') {
+                alert('빈칸입니다');
+                return;
+            }
+
+            // create rssult
+            let child = document.querySelector('p');
+            if ( !child ) {
+                const element = document.createElement('p');
+                child = element;
+            }
+            const lowerChild = id.toLowerCase();
+            child.innerHTML = highlightNumbers(value) + ` ${lowerChild}s`;
+            resultRef.current.appendChild(child);
+        }
+    }
+
 
     const highlightNumbers = (value) => {
         return value.replace(/\d+/g, '<span style="color: blue;">$&</span>');
@@ -57,8 +81,8 @@ function App() {
     const handleOnchange = (e) => {
         const { id, value } = e.target;
 
-        setDatas(
-            datas.map((data) => {
+        setDefaults(
+            defaults.map((data) => {
                 if (data.id == id) {
                     return {
                         ...data,
@@ -73,8 +97,8 @@ function App() {
     return (
         <>
             <form onSubmit={handleOnsubmit} action="">
-                {datas.length > 0 && datas.map(({ id, value, placeholder }) =>
-                (<div>
+                {defaults.length > 0 && defaults.map(({ id, value, placeholder }) =>
+                (<div key={id}>
                     <p>{id}</p>
                     <input type="number"
                         id={id}
